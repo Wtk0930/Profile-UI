@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to Tengkai Wang's Page</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="./styles/base.css" />
 
     <style>
@@ -36,6 +40,10 @@
             text-shadow: 1px 1px 2px #00ffff, -1px -1px 2px #ff00ff;
         }
 
+        .gap{
+            height: 5vh;
+        }
+
     </style>
 </head>
 
@@ -49,6 +57,16 @@
             <span class="text">Tengkai &nbsp;Wang</span>
         </h1>
         <div w3-include-html="./components/personal-card.html"></div>
+        <div class="gap">
+        </div>
+        <info-card>
+            # Research Interests
+                
+            this is a test text this is a test textthis is a test textthis is a test textthis is a test textthis is a test textthis is a test textthis is a test textthis is a test textthis is a test textthis is a test textthis is a test text
+            
+            * machine learning
+        </info-card>
+       
     </main>
 
 
@@ -57,6 +75,7 @@
     </footer>
 
     <script src="https://www.w3schools.com/lib/w3.js"></script>
+    <script type="module" src="./components/info-card.js"></script>
     <script>
 
         function loadAndExecuteScripts() {
