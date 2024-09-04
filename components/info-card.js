@@ -8,8 +8,7 @@ template.innerHTML = `
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
   <style>
     .info-card_card {
-      width: 100%;
-      max-width: 60vw;
+      width: fit-content;
       padding: 6vh 3vw;
       border-radius: 5px;
       background-color: var(--basic_black);
@@ -19,6 +18,7 @@ template.innerHTML = `
     }
 
     .info-card_card-content {
+       max-width:800px;
        color: white;
     }
     
@@ -38,7 +38,7 @@ template.innerHTML = `
       <h2></h2>
     </div>
 
-    <div class="info-card_card-content LORA"></div>
+    <div class="info-card_card-content lora-basic"></div>
   </div>
 `;
 
@@ -74,7 +74,6 @@ class InfoCard extends HTMLElement {
     const title = titleLine ? titleLine.slice(2).trim() : '';
     const content = contentLines.join('\n');
 
-    console.log(content);
     
     this.shadowRoot.querySelector('.info-card_card-title h2').innerText = title;
     this.shadowRoot.querySelector('.info-card_card-content').innerHTML = this.markdownToHTML(content);

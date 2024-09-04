@@ -22,22 +22,10 @@
             background-color: black;
         }
 
-        .my-name{
-            height: 20vh;
-            line-height: 20vh;
-            color: var(--basic_blue);
-            text-align: center;
-            font-size: 3rem;
-        }
-
-        .my-name .text{
-            display: inline-block; 
-            transition: all .2s ease-in-out;
-        }
-
-        .my-name .text:hover{
-            transform: skew(15deg, 2deg) scale(1.1);
-            text-shadow: 1px 1px 2px #00ffff, -1px -1px 2px #ff00ff;
+        main{
+            display: flex;
+            flex-direction: column;
+            align-items: end;
         }
 
         .gap{
@@ -51,11 +39,14 @@
     <header>
         <div w3-include-html="./components/navbar.html"></div>
     </header>
+    
+    <personal-name>
+        Tengkai &nbsp;Wang
+    </personal-name>
 
     <main>
-        <h1 class="my-name handjet italic-font font-weight-800">
-            <span class="text">Tengkai &nbsp;Wang</span>
-        </h1>
+        
+        
         <div w3-include-html="./components/personal-card.html"></div>
         <div class="gap">
         </div>
@@ -75,6 +66,7 @@
     </footer>
 
     <script src="https://www.w3schools.com/lib/w3.js"></script>
+    <script type="module" src="./components/personal-name.js"></script>
     <script type="module" src="./components/info-card.js"></script>
     <script>
 
