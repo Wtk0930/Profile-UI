@@ -1,22 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to Tengkai Wang's Page</title>
+
+    <link rel="stylesheet" href="./styles/base.css" />
+
+    <style>
+        body{
+            position: absolute;
+            left:0;
+            right:0;
+            top: 0;
+            bottom: 0;
+            background-color: black;
+        }
+
+        .my-name{
+            height: 20vh;
+            line-height: 20vh;
+            color: var(--basic_blue);
+            text-align: center;
+            font-size: 3rem;
+        }
+
+        .my-name .text{
+            display: inline-block; 
+            transition: all .2s ease-in-out;
+        }
+
+        .my-name .text:hover{
+            transform: skew(15deg, 2deg) scale(1.1);
+            text-shadow: 1px 1px 2px #00ffff, -1px -1px 2px #ff00ff;
+        }
+
+    </style>
 </head>
+
 <body>
     <header>
-        <H1>Here is the Header</H1>
+        <div w3-include-html="./components/navbar.html"></div>
     </header>
 
     <main>
-        <H2>Here is the main part</H2>
+        <h1 class="my-name handjet italic-font font-weight-800">
+            <span class="text">Tengkai &nbsp;Wang</span>
+        </h1>
+        <div w3-include-html="./components/personal-card.html"></div>
     </main>
 
 
     <footer>
         <h3>Here is the footer part</h3>
     </footer>
+
+    <script src="https://www.w3schools.com/lib/w3.js"></script>
+    <script>
+
+        function loadAndExecuteScripts() {
+            // 获取所有通过 w3-include-html 引入的元素
+            const includedElements = document.querySelectorAll('[is-component]');
+
+            includedElements.forEach((element, index) => {
+                // 查找元素内的所有脚本标签
+                const scripts = element.getElementsByTagName('script');
+
+                Array.from(scripts).forEach((script, scriptIndex) => {
+                    const newScript = document.createElement('script');
+
+                    // 如果脚本有 src 属性，复制它
+                    if (script.src) {
+                        newScript.src = script.src;
+                    } else {
+                        // 否则，复制内联脚本的内容
+                        newScript.textContent = script.textContent;
+                    }
+
+                    // 将新脚本附加到文档中，这将导致它被执行
+                    document.body.appendChild(newScript);
+
+                    // 从原始位置移除旧脚本
+                    script.parentNode.removeChild(script);
+                });
+            });
+        }
+
+
+        w3.includeHTML(function () {
+                // 在 includeHTML 完成后执行脚本加载函数
+                loadAndExecuteScripts();
+        });
+
+    </script>
 </body>
+
 </html>

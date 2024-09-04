@@ -1,0 +1,104 @@
+<div is-component>
+    <style>
+        .nav-bar {
+            display: flex;
+            height: 10vh;
+            justify-content: end;
+            background-color: rgb(57, 57, 57);
+        }
+
+        .nav-bar_right-box {
+
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+
+            width: fit-content;
+            height: 100%;
+
+            margin-right: 3vw;
+        }
+
+        .nav-bar_right-box>li {
+            position: relative;
+            margin: 0 2vw 0 0;
+            color: #d1cfcf;
+            font-size: 1.2rem; 
+            transition: all .3s ease-in-out;
+            cursor: pointer;
+        }
+
+        .nav-bar_right-box>li:first-child {
+            margin-left: 2vw;
+        }
+
+        .nav-bar_right-box>li:hover {
+            color: #3498db;
+        }
+
+        .nav-bar_right-box>li::before {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            top: -5px;
+            left: 50%;
+            background-color: #3498db;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .nav-bar_right-box>li:hover::before {
+            width: 100%;
+            left: 0;
+        }
+
+        @media screen and (max-width: 768px) {
+            .nav-bar {
+                justify-content: center;
+            }
+
+            .nav-bar_right-box {
+                margin-right: 0;
+            }
+
+            .nav-bar_right-box > li {
+                margin: 0 3vw;
+            }
+        }
+
+
+        @media screen and (max-width: 480px) {
+            .nav-bar_right-box > li {
+                margin: 0 3vw;
+            }
+        }
+    </style>
+
+    <div class="nav-bar" is-component>
+        <ul class="nav-bar_right-box">
+        </ul>
+    </div>
+
+    <script>
+        contentItems = [
+            "About Me",
+            "CV",
+        ]
+
+        navbarBox = document.querySelector(".nav-bar_right-box");
+
+        if (navbarBox) {
+            tempfragment = document.createDocumentFragment()
+            contentItems.forEach(item => {
+                liElement = document.createElement("li");
+                liElement.innerText = item;
+
+                tempfragment.append(liElement)
+            });
+
+            navbarBox.append(tempfragment);
+        }
+
+
+    </script>
+</div>
