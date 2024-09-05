@@ -30,11 +30,16 @@
     </style>
 </head>
 
+
+
+
 <body>
     <header>
         <div w3-include-html="./components/navbar.html"></div>
     </header>
     
+
+    <!-- edit start -->
     <personal-name>
         Tengkai &nbsp;Wang
     </personal-name>
@@ -74,6 +79,17 @@
         <my-footer>Tengkai Wang</my-footer>
     </footer>
 
+    <!-- edit end -->
+
+
+
+
+
+
+
+
+
+
     <script src="https://www.w3schools.com/lib/w3.js"></script>
     <script type="module" src="./components/personal-name.js"></script>
     <script type="module" src="./components/info-card.js"></script>
@@ -83,28 +99,22 @@
     <script>
 
         function loadAndExecuteScripts() {
-            // 获取所有通过 w3-include-html 引入的元素
             const includedElements = document.querySelectorAll('[is-component]');
 
             includedElements.forEach((element, index) => {
-                // 查找元素内的所有脚本标签
                 const scripts = element.getElementsByTagName('script');
 
                 Array.from(scripts).forEach((script, scriptIndex) => {
                     const newScript = document.createElement('script');
 
-                    // 如果脚本有 src 属性，复制它
                     if (script.src) {
                         newScript.src = script.src;
                     } else {
-                        // 否则，复制内联脚本的内容
                         newScript.textContent = script.textContent;
                     }
 
-                    // 将新脚本附加到文档中，这将导致它被执行
                     document.body.appendChild(newScript);
 
-                    // 从原始位置移除旧脚本
                     script.parentNode.removeChild(script);
                 });
             });
@@ -112,7 +122,6 @@
 
 
         w3.includeHTML(function () {
-                // 在 includeHTML 完成后执行脚本加载函数
                 loadAndExecuteScripts();
         });
     </script>
