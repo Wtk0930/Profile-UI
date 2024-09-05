@@ -49,21 +49,13 @@ class InfoCard extends HTMLElement {
     this.shadowRoot.appendChild(template.content.cloneNode(true));
   }
 
-  static get observedAttributes() {
-    return ['markdown'];
-  }
-
-  attributeChangedCallback(name, oldValue, newValue) {
-    if (name === 'markdown') {
-      this.parseMarkdown(newValue);
-    }
-  }
-
   connectedCallback() {
     const markdown = this.textContent.trim();
     
     this.parseMarkdown(markdown);
   }
+
+  
 
   parseMarkdown(markdown) {
     
@@ -85,3 +77,6 @@ class InfoCard extends HTMLElement {
 }
 
 customElements.define('info-card', InfoCard);
+
+
+export default InfoCard;

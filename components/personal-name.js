@@ -44,3 +44,5 @@ class PersonalName extends HTMLElement{
 }
 
 customElements.define('personal-name', PersonalName);
+
+export default PersonalName;

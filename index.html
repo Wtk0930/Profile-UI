@@ -25,13 +25,8 @@
         main{
             display: flex;
             flex-direction: column;
-            align-items: end;
+            align-items: center;
         }
-
-        .gap{
-            height: 5vh;
-        }
-
     </style>
 </head>
 
@@ -45,11 +40,23 @@
     </personal-name>
 
     <main>
-        
-        
-        <div w3-include-html="./components/personal-card.html"></div>
-        <div class="gap">
-        </div>
+        <personal-card 
+            avatar-src="https://th.bing.com/th/id/OIP.zTlH0_f7PO05yERvNzbvFgHaD4?rs=1&pid=ImgDetMain"
+            link1-name="Github"
+            link1-ref="https://github.com/Wtk0930"
+            link2-name="Linklin"
+            link2-ref="https://www.linkedin.com/in/%E8%97%A4%E6%81%BA-%E7%8E%8B-1093b7292/"
+            > 
+            # About Me
+
+            Hi! I am Tengkai Wang, a master student in the Department of Computer Science and Technology at Tsinghua University. I am currently working on the research of machine learning and computer vision. I am interested in the application of machine learning in computer vision and natural language processing. I am also interested in the research of the interpretability of deep learning models. I am looking for a Ph.D. position in the field of machine learning and computer vision. If you are interested in my research, please feel free to contact me.
+
+
+            note: this is a test text
+        </personal-card>
+
+        <gap-e></gap-e>
+
         <info-card>
             # Research Interests
                 
@@ -60,14 +67,19 @@
        
     </main>
 
-
+    <gap-e></gap-e>
+    <gap-e></gap-e>
+    <gap-e></gap-e>
     <footer>
-        <h3>Here is the footer part</h3>
+        <my-footer>Tengkai Wang</my-footer>
     </footer>
 
     <script src="https://www.w3schools.com/lib/w3.js"></script>
     <script type="module" src="./components/personal-name.js"></script>
     <script type="module" src="./components/info-card.js"></script>
+    <script type="module" src="./components/personal-card.js"></script>
+    <script type="module" src="./components/gap.js"></script>
+    <script type="module" src="./components/my-footer.js"></script>
     <script>
 
         function loadAndExecuteScripts() {
@@ -103,7 +115,6 @@
                 // 在 includeHTML 完成后执行脚本加载函数
                 loadAndExecuteScripts();
         });
-
     </script>
 </body>
 
